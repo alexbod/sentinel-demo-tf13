@@ -53,7 +53,7 @@ find_raw_resources_from_plan = func(type) {
 
 
 f = func() {
-	resource_instances = tfplanfunctions.find_resources_from_plan("aws_s3_bucket")
+	resource_instances = find_resources_from_plan("aws_s3_bucket")
 	for resource_instances as _, r {
 		if ((length(r.server_side_encryption_configuration) else 0) == 0 or r.server_side_encryption_configuration[0].rule[0].apply_server_side_encryption_by_default[0] not contains "sse_algorithm") {
 			return false
